@@ -12,5 +12,6 @@ runs:
       run: | 
         sudo chmod +x ${{ github.action_path }}/test.sh
         sudo bash ${{ github.action_path }}/test.sh
+      shell: bash
       env:
         INPUT_LIST: ${{ inputs.list }}
