@@ -9,10 +9,13 @@ runs:
   using: "composite"
   steps:
     - name: chmod
-      run: sudo chmod +x ${{ github.action_path }}/test.sh
+      run: sudo chmod +x ${{ github.action_path }}/dev/test.sh
       shell: bash
     - name: echo list
-      run: ${{ github.action_path }}/test.sh
+      run: ${{ github.action_path }}/dev/test.sh
       shell: bash
       env:
         INPUT_LIST: ${{ inputs.list }}
+        ACTION_PATH: ${{ github.action_path }}
+        EVENT_PATH: ${{ github.event_path }}
+        WORKSPACE: ${{ github.workspace }}
