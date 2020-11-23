@@ -1,0 +1,15 @@
+name: 'test'
+
+inputs:
+  list:
+    description: 'test list'
+    required: true
+
+runs:
+  using: "composite"
+  steps:
+    - name: echo list
+      run: ${{ github.action_path }}/test.sh
+      shell: bash
+      env:
+        INPUT_LIST: ${{ inputs.list }}
